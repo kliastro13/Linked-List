@@ -18,7 +18,9 @@ class EmployeesList {
 
   Print(index) {}
 
-  Count() {}
+  Count() {
+    console.log(`Employees list has ${this.size} elements`);
+  }
 
   Add(lastName) {
     const element = new ListElement(lastName);
