@@ -1,0 +1,19 @@
+Create your own generic linked list.
+You list must provide methods to:
+Insert (at any position),
+Delete (at any position),
+Print (any element),
+Print (whole list),
+Count (elements),
+Add (add to the end). 
+Name of the list could be whatever you want Example:
+
+let list = new SuperList();
+list.Add(1);
+list.Add(2);
+list.Insert(0,1);
+list.Print();
+
+//outputs: 1 -> 1 -> 2
+
+Please follow a coding style and best practices.
