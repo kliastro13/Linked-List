@@ -15,7 +15,43 @@ class EmployeesList {
 
   Insert(index, lastName) {}
 
-  Delete(index) {}
+  Delete(index) {
+    let temp = this.start;
+    let prev = null;
+
+    // for first element
+    if (temp !== null && temp.index === index) {
+      this.start = temp.next;
+      while (temp != null) {
+        temp.index--;
+        prev = temp;
+        temp = temp.next;
+      }
+      this.size--;
+      return console.log(`Element ${index} deleted`);
+    }
+
+    //for any element
+    while (temp !== null && temp.index !== index) {
+      prev = temp;
+      temp = temp.next;
+    }
+
+    if (temp === null)
+      return console.log(
+        `There is no element with index ${index} in Employees list`
+      );
+
+    prev.next = temp.next;
+
+    while (temp !== null) {
+      prev = temp;
+      temp.index--;
+      temp = temp.next;
+    }
+    console.log(`Element ${index} deleted`);
+    this.size--;
+  }
 
   Print(index) {
     //for for empty list
