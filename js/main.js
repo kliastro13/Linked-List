@@ -1,10 +1,10 @@
-const list1 = new EmployeesList();
+const employeesList = new MyLinkedList();
 
-list1.Add("Kolisnyk");
-list1.Add("Kurmach");
-list1.Add("Sokolovskiy");
-list1.Add("Kryvoruchka");
-list1.Add("Denysov");
-list1.Add("Kudimov");
+employeesList.Add("Kolisnyk");
+employeesList.Add("Kurmach");
+employeesList.Add("Sokolovskiy");
+employeesList.Add("Kryvoruchka");
+employeesList.Add("Denysov");
+employeesList.Add("Kudimov");
 
-console.log(list1);
+console.log(employeesList);
