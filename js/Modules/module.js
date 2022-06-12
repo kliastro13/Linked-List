@@ -13,9 +13,12 @@ class MyLinkedList {
     this.size = 0;
   }
 
+  firstIndex = (() => 0)();
+  secondIndex = (() => 1)();
+
   Insert(index, data) {
     //for empty list
-    if (this.size === 0 || index >= this.size) {
+    if (this.size === this.firstIndex || index >= this.size) {
       this.Add(data);
       return;
     }
@@ -23,20 +26,6 @@ class MyLinkedList {
     //for any element
     let element = this.start;
     let prevElement = null;
-
-    /*     while (element !== null && element.index !== index) {
-      prevElement = element;
-      element = element.next;
-    }
-
-    prevElement.next = new MyListElement(data, element, element.index);
-
-    while (element !== null) {
-      prevElement = element;
-      element.index++;
-      element = element.next;
-    }
- */
 
     while (element !== null) {
       if (element.index === index) {
@@ -71,24 +60,6 @@ class MyLinkedList {
       console.log(`Element ${index} deleted`);
       return;
     }
-
-    //for any element
-    /*     while (element !== null && element.index !== index) {
-      prevElement = element;
-      element = element.next;
-    }
-
-    if (element === null) {
-      console.log(`There is no element with index ${index} in Employees list`);
-      return;
-    }
-
-    prevElement.next = element.next;
-
-    while (element !== null) {
-      element.index--;
-      element = element.next;
-    } */
 
     if (index >= this.size) {
       console.log(`There is no element with index ${index} in Employees list`);
@@ -147,20 +118,19 @@ class MyLinkedList {
 
   Add(data) {
     const element = new MyListElement(data);
+    element.index = this.size;
 
     //for empty list
-    if (this.size === 0) {
+    if (this.size === this.firstIndex) {
       this.start = element;
-      element.index = this.size;
       this.size++;
       return;
     }
 
     //for list with only 1 element
-    if (this.size === 1) {
+    if (this.size === this.secondIndex) {
       this.start.next = element;
       this.end = element;
-      element.index = this.size;
       this.size++;
       return;
     }
@@ -168,7 +138,6 @@ class MyLinkedList {
     //for all other cases
     if (this.end) {
       this.end.next = element;
-      element.index = this.size;
     }
 
     this.size++;
